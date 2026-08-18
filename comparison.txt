@@ -32,10 +32,10 @@ the difference.
 
 sampple output log.( Michael jackson image)
 
-Scaling image by 2.0x. This might take a few seconds...
+Scaling image by 2.0x
 
 
-Running Nearest Neighbor...
+Running Nearest Neighbor
 nearest neghbour matrix:  [[[229 230 232]
   [229 230 232]
   [229 230 232]
@@ -88,7 +88,7 @@ nearest neghbour matrix:  [[[229 230 232]
 
 
 
-Running Bilinear Interpolation...
+Running Bilinear Interpolation
 bilinear matrix:  [[[229 230 232]
   [229 230 232]
   [229 230 232]
@@ -138,7 +138,7 @@ bilinear matrix:  [[[229 230 232]
   [  0   0   0]
   [  0   0   0]
   [  0   0   0]]]
-Saving images to the folder...
+Saving images to the folder
 Done! Saved the new images.
 
 
