@@ -1,3 +1,37 @@
+Comparison (This compairson is based on the low quality michael jackson image)
+
+Nearest Neighbour 
+1.) This algorithm just simply maps the cordinate to the original matrix cordinate by rounding off
+no complex mechanism. (Literally copying the colours)
+
+2.) If we have a look at the evidence , in the matrix generated using neighourest neighbour , we can 
+see duplicate RGB blocks such as [229 230 232] repeating acros multiple rows and columns.
+
+3.) Visually , the process is computationally fast becuase there's no complex math involved , when it 
+comes to the image , when zoomed in i could see a difference in the image compared to the other. it
+has a "blocky" or pixelated look.
+
+Bilinear Interpolation
+
+1.) this method maps the target cordinate , finds the finds the exact fractional distances ($dx, dy$), and calculates 
+a weighted average of the four closest surrounding pixels
+
+2.) When compared to the nearest neighbour this , algorithms produces a matrix , that has less repeating
+blocks compared to the other,the RGB values gradually step down: [19 19 18] blends into [16 16 14] and then [14 14 11].
+
+3.) Well computationally much heeavier takes more time , when looking at the image , the pixel colour distribution
+is different , edges appear much softer and more natural, though the image might look slightly blurry compared to the original.
+
+
+It was bit hard to spot the difference in the sample image i used at first , but when i zoomed the sample one and 
+the , two produced by the algorithm , there was a clear noticeable difference on how the pixels were coloured.
+
+Upscaled and sample images of the nelum kuluna is also included , with zoomed screenshots to spot 
+the difference.
+
+
+sampple output log.( Michael jackson image)
+
 Scaling image by 2.0x. This might take a few seconds...
 
 
@@ -109,5 +143,5 @@ Done! Saved the new images.
 
 
 
-Comparison (This compairson is based on the low quality michael jackson image)
+
 
