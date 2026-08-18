@@ -26,13 +26,14 @@ def scale_up_pixel_cal(matrix, selected_pixel_in_new_matrix, new_shape):
     #calculating the pixel value for the new matrix by multiplying the weighted pixel of the orignal matix
     #new_pixel_value = 0 
 
+    #calcuting the pixel position in the original matrix
     x = new_row / scale_row
     y = new_col / scale_col
 
     nearest_row = round(x)
     nearest_col = round(y)
 
-    # Ensure we don't go out of bounds on the bottom/right edges
+    # don't go out of bounds on the bottom/right edges
     nearest_row = min(nearest_row, matrix.shape[0] - 1)
     nearest_col = min(nearest_col, matrix.shape[1] - 1)
 

@@ -2,13 +2,13 @@ import numpy as np
 from PIL import Image
 
 # Load the image and convert it to a NumPy matrix
-image_name = 'low_michael.jpg'
+image_name = 'Image_processing_sample.jpg'
 
 original_img = Image.open(image_name).convert('RGB')
 original_matrix = np.array(original_img)
 
 
-# 2. Nearest Neighbor Algorithm
+# Nearest Neighbor Algorithm
 def nearest_neighbor_pixel(matrix, new_row, new_col, scale_row, scale_col):
     x = new_row / scale_row
     y = new_col / scale_col
@@ -16,7 +16,7 @@ def nearest_neighbor_pixel(matrix, new_row, new_col, scale_row, scale_col):
     nearest_col = min(round(y), matrix.shape[1] - 1)
     return matrix[nearest_row, nearest_col]
 
-# 3. Bilinear Algorithm
+# Bilinear Algorithm
 def bilinear_pixel(matrix, new_row, new_col, scale_row, scale_col):
 
     x = new_row / scale_row
@@ -27,7 +27,7 @@ def bilinear_pixel(matrix, new_row, new_col, scale_row, scale_col):
 
     dx = x - top_left_row
     dy = y - top_left_col
-    
+
     bottom_right_row = min(top_left_row + 1, matrix.shape[0] - 1)
     bottom_right_col = min(top_left_col + 1, matrix.shape[1] - 1)
     
@@ -44,7 +44,7 @@ def bilinear_pixel(matrix, new_row, new_col, scale_row, scale_col):
     )
     return new_pixel_value
 
-# 4. Master function to loop through the grid
+# main function to loop through the grid
 def resize_image(original_matrix, scale_factor, method):
     old_height, old_width, channels = original_matrix.shape
     new_height = int(old_height * scale_factor)
@@ -62,19 +62,22 @@ def resize_image(original_matrix, scale_factor, method):
                 
     return new_matrix
 
-# 5. Process the image
+#Process the image
 SCALE = 2.0  
-print(f"Scaling image by {SCALE}x. This might take a few seconds...")
+print(f"Scaling image by {SCALE}x")
 
-print("Running Nearest Neighbor...")
+print("Running Nearest Neighbor")
 nn_matrix = resize_image(original_matrix, scale_factor=SCALE, method='nearest')
 
-print("Running Bilinear Interpolation...")
+print("nearest neghbour matrix: ", nn_matrix)
+print("Running Bilinear Interpolation")
 bl_matrix = resize_image(original_matrix, scale_factor=SCALE, method='bilinear')
 
-# 6. Save the results directly to the folder
-print("Saving images to your folder...")
+print("bilinear matrix: ", bl_matrix)
+
+# results to the folder
+print("Saving images to the folder")
 Image.fromarray(nn_matrix).save("nearest_neighbor_output.jpg")
 Image.fromarray(bl_matrix).save("bilinear_output.jpg")
 
-print("Done! Check your folder for the new images.")
+print("Done! Saved the new images.")
